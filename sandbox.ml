@@ -36,8 +36,15 @@ let rec rev _list =
   | a::tail -> rev tail @ [a]
 ;;
 
+let tail _list =
+  match _list with
+    [] -> []
+  | a::tail -> tail
+;;
+
 let palindromize _list =
   match _list with
     [] -> []
-  | a::tail -> _list @ rev tail
+  | a::_tail -> _list @ let l = a::_tail in tail (rev l)
 ;;
+
