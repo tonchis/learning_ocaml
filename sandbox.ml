@@ -55,13 +55,14 @@ let palindromize _list =
 
 (* Question 4 *)
 
-let rec drop_last _list =
+let rec tail_rec_drop_last _list accum =
   match _list with
-  | [] -> []
-  | [a] -> []
-  | a::b::_tail ->
-      let l = a::b::_tail in rev (tail (rev l))
+  | [] -> accum
+  | [a] -> accum
+  | a::b::_tail -> tail_rec_drop_last (b::_tail) (accum @ [a])
 ;;
+
+let rec drop_last _list = tail_rec_drop_last _list [];;
 
 (* Question 5 *)
 

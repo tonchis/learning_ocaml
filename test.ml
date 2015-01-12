@@ -42,8 +42,8 @@ let suite =
     "count occurences of true in a list" >:: count_true_test;
     "reverse list" >:: rev_test;
     "palindromize list" >:: palindromize_list_test;
-    "member" >:: member_test;
-    "drop last item of a list" >:: drop_last_test
+    "drop last item of a list" >:: drop_last_test;
+    "member" >:: member_test
   ]
 ;;
 
