@@ -35,6 +35,10 @@ let member_test _ =
   refute (Sandbox.member 3 [1; 2])
 ;;
 
+let make_set_test _ =
+  assert_equal [1; 2; 3] (Sandbox.make_set [1; 1; 2; 3; 3])
+;;
+
 let suite =
   "Chapter 4 suite" >::: [
     "list length" >:: length_list_test;
@@ -43,7 +47,8 @@ let suite =
     "reverse list" >:: rev_test;
     "palindromize list" >:: palindromize_list_test;
     "drop last item of a list" >:: drop_last_test;
-    "member" >:: member_test
+    "member" >:: member_test;
+    "make a set from a list" >:: make_set_test
   ]
 ;;
 

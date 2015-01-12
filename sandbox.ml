@@ -76,3 +76,15 @@ let rec tail_rec_member element _list found =
 ;;
 
 let member element _list = tail_rec_member element _list false;;
+
+(* Question 6 *)
+
+let rec tail_rec_make_set _list accum =
+  match _list with
+  | [] -> accum
+  | a::_tail ->
+      tail_rec_make_set _tail (if member a accum then accum else accum @ [a])
+;;
+
+let make_set _list = tail_rec_make_set _list [];;
+
