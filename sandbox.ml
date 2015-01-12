@@ -30,11 +30,13 @@ let rec tail_rec_count_true _list accum =
 let count_true _list = tail_rec_count_true _list 0;;
 
 (* Question 3 *)
-let rec rev _list =
+let rec tail_rec_rev _list accum =
   match _list with
-    [] -> []
-  | a::tail -> rev tail @ [a]
+    [] -> accum
+  | a::_tail -> tail_rec_rev _tail (a::accum)
 ;;
+
+let rev _list = tail_rec_rev _list [];;
 
 let tail _list =
   match _list with
