@@ -33,11 +33,8 @@ let make_set_test _ =
  * Chapter 6
  *)
 
-let calm_test _ =
-  assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
-
-let calm_with_map_test _ =
-  assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.map_calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
+let test_calm f _ =
+  assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (f ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
 
 let suite =
   "suite" >::: [
@@ -49,8 +46,8 @@ let suite =
     "drop last item of a list" >:: drop_last_test;
     "member" >:: member_test;
     "make a set from a list" >:: make_set_test;
-    "keep calm and ocalm on" >:: calm_test;
-    "calm with map" >:: calm_with_map_test;
+    "keep calm and ocalm on" >:: test_calm Sandbox.calm;
+    "calm with map" >:: test_calm Sandbox.map_calm;
   ]
 
 let () = run_test_tt_main suite
