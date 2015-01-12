@@ -48,3 +48,15 @@ let palindromize _list =
   | a::_tail -> _list @ let l = a::_tail in tail (rev l)
 ;;
 
+(* Question 5 *)
+
+let rec tail_rec_member element _list found =
+  match found with
+    true -> true
+  | false ->
+      match _list with
+        [] -> false
+      | a::_tail -> tail_rec_member element _tail (a = element)
+;;
+
+let member element _list = tail_rec_member element _list false;;
