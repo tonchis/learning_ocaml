@@ -13,6 +13,7 @@ let length _list = _length _list 0;;
 length [1; 2; 3; 4]
 
 (* Question 1 *)
+
 let rec evens _list =
   match _list with
     _::a::tail -> a :: evens tail
@@ -20,6 +21,7 @@ let rec evens _list =
 ;;
 
 (* Question 2 *)
+
 let rec tail_rec_count_true _list accum =
   match _list with
     [] -> accum
@@ -30,6 +32,7 @@ let rec tail_rec_count_true _list accum =
 let count_true _list = tail_rec_count_true _list 0;;
 
 (* Question 3 *)
+
 let rec tail_rec_rev _list accum =
   match _list with
     [] -> accum
@@ -48,6 +51,16 @@ let palindromize _list =
   match _list with
     [] -> []
   | a::_tail -> _list @ let l = a::_tail in tail (rev l)
+;;
+
+(* Question 4 *)
+
+let rec drop_last _list =
+  match _list with
+    [] -> []
+  | [a] -> []
+  | a::b::_tail ->
+      let l = a::b::_tail in rev (tail (rev l))
 ;;
 
 (* Question 5 *)
