@@ -39,8 +39,20 @@ let make_set_test _ =
   assert_equal [1; 2; 3] (Sandbox.make_set [1; 1; 2; 3; 3])
 ;;
 
+(*
+ * Chapter 6
+ *)
+
+let calm_test _ =
+  assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
+;;
+
+let calm_with_map_test _ =
+  assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.map_calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
+;;
+
 let suite =
-  "Chapter 4 suite" >::: [
+  "suite" >::: [
     "list length" >:: length_list_test;
     "get even elements of a list" >:: evens_list_test;
     "count occurences of true in a list" >:: count_true_test;
@@ -48,7 +60,9 @@ let suite =
     "palindromize list" >:: palindromize_list_test;
     "drop last item of a list" >:: drop_last_test;
     "member" >:: member_test;
-    "make a set from a list" >:: make_set_test
+    "make a set from a list" >:: make_set_test;
+    "keep calm and ocalm on" >:: calm_test;
+    "calm with map" >:: calm_with_map_test;
   ]
 ;;
 

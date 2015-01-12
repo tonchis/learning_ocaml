@@ -88,3 +88,27 @@ let rec tail_rec_make_set _list accum =
 
 let make_set _list = tail_rec_make_set _list [];;
 
+(*
+ * Chapter 6
+ *)
+
+(* Question 1 *)
+
+let rec calm _list =
+  match _list with
+  | [] -> []
+  | a::_tail -> (if a = '!' then '.' else a)::calm _tail
+;;
+
+let rec tail_rec_map f _list accum =
+  match _list with
+  | [] -> accum
+  | a::_tail -> tail_rec_map f _tail (accum @ [f a])
+;;
+
+let map f _list = tail_rec_map f _list []
+
+let map_calm _list =
+  map (fun a -> if a = '!' then '.' else a) _list
+;;
+
