@@ -1,43 +1,33 @@
-open OUnit2;;
-
+open OUnit2
 (*
  * Chapter 4
  *)
 
-let refute expression = assert (not expression);;
-
+let refute expression = assert (not expression)
 let length_list_test _ =
   assert_equal 3 (Sandbox.length [1; 2; 3])
-;;
 
 let evens_list_test _ =
   assert_equal [4; 4] (Sandbox.evens [2; 4; 2; 4; 2])
-;;
 
 let count_true_test _ =
   assert_equal 2 (Sandbox.count_true [true; false; true])
-;;
 
 let rev_test _ =
   assert_equal [3; 2; 1] (Sandbox.rev [1; 2; 3])
-;;
 
 let palindromize_list_test _ =
   assert_equal [1; 2; 3; 2; 1] (Sandbox.palindromize [1; 2; 3])
-;;
 
 let drop_last_test _ =
   assert_equal [1; 2; 3] (Sandbox.drop_last [1; 2; 3; 4])
-;;
 
 let member_test _ =
   assert (Sandbox.member 2 [1; 2]);
   refute (Sandbox.member 3 [1; 2])
-;;
 
 let make_set_test _ =
   assert_equal [1; 2; 3] (Sandbox.make_set [1; 1; 2; 3; 3])
-;;
 
 (*
  * Chapter 6
@@ -45,11 +35,9 @@ let make_set_test _ =
 
 let calm_test _ =
   assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
-;;
 
 let calm_with_map_test _ =
   assert_equal ['H'; 'e'; 'l'; 'p'; '.'; ' '; 'F'; 'i'; 'r'; 'e'; '.'] (Sandbox.map_calm ['H'; 'e'; 'l'; 'p'; '!'; ' '; 'F'; 'i'; 'r'; 'e'; '!'])
-;;
 
 let suite =
   "suite" >::: [
@@ -64,6 +52,5 @@ let suite =
     "keep calm and ocalm on" >:: calm_test;
     "calm with map" >:: calm_with_map_test;
   ]
-;;
 
-let () = run_test_tt_main suite;;
+let () = run_test_tt_main suite
