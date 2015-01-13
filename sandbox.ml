@@ -25,6 +25,7 @@ let rec tail_rec_count_true _list accum =
   | false::tail -> tail_rec_count_true tail accum
 
 let count_true _list = tail_rec_count_true _list 0
+
 (* Question 3 *)
 
 let rec tail_rec_rev _list accum =
@@ -52,6 +53,7 @@ let rec tail_rec_drop_last _list accum =
   | a::b::_tail -> tail_rec_drop_last (b::_tail) (accum @ [a])
 
 let rec drop_last _list = tail_rec_drop_last _list []
+
 (* Question 5 *)
 
 let rec tail_rec_member element _list found =
@@ -63,6 +65,7 @@ let rec tail_rec_member element _list found =
       | a::_tail -> tail_rec_member element _tail (a = element)
 
 let member element _list = tail_rec_member element _list false
+
 (* Question 6 *)
 
 let rec tail_rec_make_set _list accum =
@@ -72,6 +75,7 @@ let rec tail_rec_make_set _list accum =
       tail_rec_make_set _tail (if member a accum then accum else accum @ [a])
 
 let make_set _list = tail_rec_make_set _list []
+
 (*
  * Chapter 6
  *)
